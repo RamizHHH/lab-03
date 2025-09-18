@@ -52,16 +52,22 @@ public class EditCityFragment extends DialogFragment {
         } else {
             city = null;
         }
+
+        if(city != null){
+            editCityName.setText(city.getName());
+            editProvinceName.setText(city.getProvince());
+        }
         return builder.setView(view)
                 .setTitle("Edit City")
                 .setNegativeButton("Cancel", null)
                 .setPositiveButton("ok", (dialog, which) -> {
                     String cityName = editCityName.getText().toString();
                     String provinceName = editProvinceName.getText().toString();
-                    assert city != null;
-                    city.setName(cityName);
-                    city.setProvince(provinceName);
-                    listener.editCity(city);
+                    if(city != null){
+                        city.setName(cityName);
+                        city.setProvince(provinceName);
+                        listener.editCity(city);
+                    }
                 })
                 .create();
     }

@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements
                 EditCityFragment.newInstance(selected).show(getSupportFragmentManager(), "Edit City");
             }
         });
-
         FloatingActionButton fab = findViewById(R.id.button_add_city);
         fab.setOnClickListener(v -> {
             new AddCityFragment().show(getSupportFragmentManager(), "Add City");
